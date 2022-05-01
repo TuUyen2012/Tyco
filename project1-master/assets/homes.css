@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: "Roboto Cn", sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: #eee;   
+}
+
+body{
+    background-color: whitesmoke;
+    background-size: cover;
+    /* margin-bottom: 100px; */
+    /* padding-bottom: 700px;    */
+}
+
+nav{
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    background-color: #286398;  
+}
+
+nav .brand{
+    font-size: 3rem;
+    font-weight: 300;
+    transform: translateX(-100rem);
+    animation: slideIn .5s forwards;   
+}
+
+nav .brand span{
+    color: crimson;
+}
+
+nav ul{
+    display: flex;
+}
+
+nav ul li{
+    list-style: none;
+    transform: translateX(100rem);
+    animation: slideIn .3s forwards;   
+}
