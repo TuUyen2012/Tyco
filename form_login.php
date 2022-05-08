@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/login.css">
-  <!-- <link rel="stylesheet" href="./assets/login1.css"> -->
   <link rel="stylesheet" href="./css/bootstrap.css">
-  <!-- <link rel="stylesheet" href="./themify-icons/themify-icon.css"> -->
 </head>
 <body>
   
@@ -47,7 +45,7 @@
         <input type="checkbox" class="form-check-input">
         <small>Remember Me</small>
       </label>
-      <input class="btn btn-login float-right" type="submit" name="sign-in" value="Submit">
+      <input class="btn btn-login float-right" type="submit" name="sign-in" value="Đăng nhập">
       <button ><a class="btn btn-login" href="form_dang_ky.php">Đăng ký</a></button>
       <span>Forgot password ?<a href="#">Reset password</a></span>
   </div>
