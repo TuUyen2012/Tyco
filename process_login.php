@@ -24,4 +24,5 @@ if($dem==1){
 }
 else{
 	header("location:form_login.php?error=Đăng nhập thất bại");
+	echo " Sai $email  $mat_khau";
 }
