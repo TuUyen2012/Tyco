@@ -52,7 +52,6 @@
 		<button>Đăng nhập</button>
 	</form>
 	<div class="inputBox" style="color: red">
-      <?php echo $error ?>
     </div> -->
 
 
@@ -77,7 +76,6 @@
   
     <div class="form-check">
     <button type="submit" class="btn btn-login float-right">Submit</button>
-	<?php echo $error ?>
   </div>
   
 </form>
