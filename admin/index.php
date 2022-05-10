@@ -11,9 +11,10 @@ if(empty($_SESSION['ma_admin']))
 <head>
 
 	<title></title>
+	<link rel="stylesheet" href="./css/bootstrap.css">
 	
 </head>
-<?php require 'khu_vuc_admin/menu_admin.php'; ?>
+<?php require 'khu_vuc_admin/admin_menu.php'; ?>
    
 </body>
 </html>
