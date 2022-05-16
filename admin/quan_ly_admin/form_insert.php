@@ -7,6 +7,7 @@ if(empty($_SESSION['ma_admin']))
  ?>
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title></title>
 	<link rel="stylesheet" href="admin.css">
@@ -14,56 +15,34 @@ if(empty($_SESSION['ma_admin']))
 
 <body>
 
-<?php   require '../khu_vuc_admin/menu_admin.php'; ?>
+	<?php   require '../khu_vuc_admin/menu_admin.php'; ?>
 
-<?php 
+	<?php 
 	$error = '';
 	if(isset($_GET['error'])){
 		$error = $_GET['error'];
 		
 		}
 ?>
-<h1>
-	<?php echo $error ?>
-</h1>
-	
-<form method="POST" action="process_insert.php">
-	<center><table border="1" style="width: 20%;">
-	<tr>
-		<td>
-			Tên:
-		</td>
-		<td>
-			<input type="text" name="ten_admin">
-		</td>
-		
-	</tr>
-	<tr>
-		<td>
-			E-mail:
-		</td>
-		<td>
-			<input type="email" name="email">
-		</td>
-	</tr>
-		
-	<tr>
-		<td>
-			Mật khẩu:
-		</td>
-		<td>
-			<input type="password" name="mat_khau">
-		</td>
-	</tr>
-	<tr>
-		<td>Cấp độ:</td>
-		<td><input type="radio" name="cap_do" value="0" checked="checked">Admin
-		<br>
-		<input type="radio" name="cap_do" value="1">Super Admin
-		<br></td>
-	</tr>
-	<tr><td colspan="2" style="text-align: center;" ><button style="background-color:green;font-size: 20px;">Thêm</button></td></tr>
-</table></center>
-</form>
+	<form class="container-fluid" style="width: 60%;" method="POST" action="process_insert.php">
+		<div class="form-group">
+			<label for="full_name">Full name</label>
+			<input type="text" class="form-control" id="full_name" name="ten_admin">
+		</div>
+		<div class="form-group">
+			<label for="email">Email</label>
+			<input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+		</div>
+		<div class="form-group">
+			<label for="password">Password</label>
+			<input type="password" class="form-control" id="password" name="mat_khau">
+		</div>
+		<div class="form-group">
+			<label for="password" style="display:block">Level</label>
+			<input type="radio" value="0" checked="checked" name="cap_do"> Admin
+			<input type="radio" value="1" style="margin-left: 20px;" name="cap_do"> Supper Admin
+		</div>
+		<button class="btn btn-primary" style="width: 10%">Add</button>
+	</form>
 </body>
 </html>

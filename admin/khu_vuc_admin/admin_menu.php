@@ -21,7 +21,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
                 </button>
                 <a class="navbar-brand" href="#">
                     <img src="user.png" alt="">
@@ -56,7 +56,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid mycontainer">
+    <!-- <div class="container-fluid mycontainer">
         <div class="row">
             <h1>
                 Bootstrap Navbar Sidebar
@@ -71,7 +71,7 @@
             <p>To use fixed left side bar - add class <code>.navbar-fixed-left</code> in navbar <code> nav </code> tag
             </p>
         </div>
-    </div>
+    </div> -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
