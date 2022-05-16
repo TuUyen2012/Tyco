@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/project1-master/admin/style.css">
+    <link rel="stylesheet" href="/project1-master/admin/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="main.css">
+
 </head>
 <body>
 
@@ -24,7 +25,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    <img src="user.png" alt="">
+                    <img src="/project1-master/admin/user.png" alt="">
                     <small> Admin</small>
                 </a>
             </div>
@@ -55,23 +56,6 @@
             </div>
         </div>
     </nav>
-
-    <div class="container-fluid mycontainer">
-        <div class="row">
-            <h1>
-                Bootstrap Navbar Sidebar
-                <br>
-                <small>Fixed to Left</small>
-            </h1>
-            <p>
-                <strong>
-                    Use classic Bootstrap navbar as sidebar, on left side.
-                </strong>
-            </p>
-            <p>To use fixed left side bar - add class <code>.navbar-fixed-left</code> in navbar <code> nav </code> tag
-            </p>
-        </div>
-    </div>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
