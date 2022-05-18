@@ -4,25 +4,36 @@
 <div class="overlay"></div>
 <div class="container">
     <nav>
-        <h1 class="brand"><a href="home.php"><span style="font-size: 52px">ty</span><b style="color: black;">co</b> </a></h1>
+        <h1 class="brand"><a href="home.php"><span style="font-size: 52px">ty</span><b style="color: black;">co</b> </a>
+        </h1>
         <ul>
-            <li><a href="home.php"><i class="fa fa-home" style="color: red;font-size: 20px"></i><b style="color: black;">Trang chủ</b></a></li>
-            
-            <li><?php if(isset($_SESSION['ma_khach_hang'])){?>
-<a href="view_gio_hang.php"><i class="fa fa-shopping-cart" style="font-size:20px;position: relative;color:red"></i><b style="color: black;">Giỏ Hàng</b></a> <?php #}?></li>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-            <li><?php 
+            <li><a href="home.php"><i class="fa fa-home" style="color: red;font-size: 20px"></i><b
+                        style="color: black;">Trang chủ</b></a></li>
+
+            <li>
+                <?php if(isset($_SESSION['ma_khach_hang'])){?>
+                <a href="view_gio_hang.php"><i class="fa fa-shopping-cart"
+                        style="font-size:20px;position: relative;color:red"></i><b style="color: black;">Giỏ
+                        Hàng</b></a>
+                <?php #}?>
+            </li>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <li>
+                <?php 
             if(isset($_SESSION['ma_khach_hang'])){
-             ?><b style="color: red; font-size: 12px;position: relative;right:-30px"><b style="color: black;"></b>Xin chào:<?php echo $_SESSION['ten_khach_hang'] ?></b>
-<a onclick='return confirm("Bạn chắc chắn đăng xuất?")' href="logout.php">
-<i class="fa fa-user-circle-o" style="color: red;"></i><b style="color: black;">Đăng xuất</b>
-</a>
-<?php } else{ ?>
-<a href="form_login.php">
-<i class="fa fa-user-circle-o" style="color: red;"></i><b style="color: black;">Đăng nhập</b>
-</a>
-<?php } ?>
-</li>
-        </ul> 
+             ?><b style="color: red; font-size: 12px;position: relative;right:-30px"><b style="color: black;"></b>Xin
+                    chào:
+                    <?php echo $_SESSION['ten_khach_hang'] ?>
+                </b>
+                <a onclick='return confirm("Bạn chắc chắn đăng xuất?")' href="logout.php">
+                    <i class="fa fa-user-circle-o" style="color: red;"></i><b style="color: black;">Đăng xuất</b>
+                </a>
+                <?php } else{ ?>
+                <a href="form_login.php">
+                    <i class="fa fa-user-circle-o" style="color: red;"></i><b style="color: black;">Đăng nhập</b>
+                </a>
+                <?php } ?>
+            </li>
+        </ul>
     </nav>
 </div>
 
@@ -62,7 +73,8 @@ $result_sp = mysqli_query($connect,$sql);
 
 <form style="align = center;">
 
-</i><span style="color: #ff6666; font-size: 32px;margin: 20px 10px"> <i class="fa fa-search"></i>Tìm kiếm: </span><input style="width: 50%; height:30px" type="search" name="tim_kiem" value="<?php echo $tim_kiem ?>">
+    </i><span style="color: #ff6666; font-size: 32px;margin: 20px 10px"> <i class="fa fa-search"></i>Tìm kiếm:
+    </span><input style="width: 50%; height:30px" type="search" name="tim_kiem" value="<?php echo $tim_kiem ?>">
 </form>
 <br><br>
 
@@ -75,29 +87,34 @@ require 'menu.php';
 
 
 <div class="block">
-<div class="product">
-<img src="anh_san_pham/<?php echo $each['anh'] ?>" height = '210'>
-<div class="buttons">
-<?php if(isset($_SESSION['ma_khach_hang'])){?>
-<a onclick="return alert('Bạn đã thêm sản phẩm thành công vào giỏ hàng')" class="preview" href="process_them_san_pham_vao_gio_hang.php?ma_san_pham=<?php echo $each['ma_san_pham'] ?>">Mua</a>
-<?php }?>
-<?php if(!isset($_SESSION['ma_khach_hang'])){?> 
+    <div class="product">
+        <img src="anh_san_pham/<?php echo $each['anh'] ?>" height='210'>
+        <div class="buttons">
+            <?php if(isset($_SESSION['ma_khach_hang'])){?>
+            <a onclick="return alert('Bạn đã thêm sản phẩm thành công vào giỏ hàng')" class="preview"
+                href="process_them_san_pham_vao_gio_hang.php?ma_san_pham=<?php echo $each['ma_san_pham'] ?>">Mua</a>
+            <?php }?>
+            <?php if(!isset($_SESSION['ma_khach_hang'])){?>
 
-<a class="preview">Mua</a>
+            <a class="preview">Mua</a>
 
-<?php }?>
+            <?php }?>
 
-<a class="buy" href="xem_chi_tiet.php?ma_san_pham=<?php echo $each['ma_san_pham'] ?>">Xem chi tiết</a>
+            <a class="buy" href="xem_chi_tiet.php?ma_san_pham=<?php echo $each['ma_san_pham'] ?>">Xem chi tiết</a>
 
-</div>
-</div>
+        </div>
+    </div>
 
-<div class="info">
-<h4  style="color: red"><?php echo $each['ten_san_pham'] ?></h4>
+    <div class="info">
+        <h4 style="color: red">
+            <?php echo $each['ten_san_pham'] ?>
+        </h4>
 
-<span class="price"><?php echo number_format($each['gia']) ?> VNĐ</span><br>
+        <span class="price">
+            <?php echo number_format($each['gia']) ?> VNĐ
+        </span><br>
 
-</div>
+    </div>
 
 
 </div>
@@ -106,13 +123,13 @@ require 'menu.php';
 </div>
 
 <div class="phan-trang">
-<?php for ($i=1;$i<=$so_trang;$i++) { ?>
-<u><a href="?trang=<?php echo $i ?>&tim_kiem=<?php echo $tim_kiem ?>">
-<u style="color: black;">
-<?php echo $i ?>
-</u>
-</a></u>
-<?php }?>
+    <?php for ($i=1;$i<=$so_trang;$i++) { ?>
+    <u><a href="?trang=<?php echo $i ?>&tim_kiem=<?php echo $tim_kiem ?>">
+            <u style="color: black;">
+                <?php echo $i ?>
+            </u>
+        </a></u>
+    <?php }?>
 </div>
 
 

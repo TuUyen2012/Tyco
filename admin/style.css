@@ -2,6 +2,10 @@
     background-color: #2196f3;
 }
 
+.navbar {
+    margin-bottom: 0 !important;
+}
+
 .navbar-inverse .navbar-nav li a.dropdown-item,
 .navbar-inverse .navbar-brand {
     color: #fff;
@@ -79,12 +83,10 @@
 
 body {
     padding-top: 70px;
-    min-height: 200vh
 }
 
 .navbar-fixed-left,
 .navbar-fixed-right {
-    position: fixed !important;
     top: 0;
     width: 100%;
     z-index: 1030;
@@ -150,7 +152,6 @@ body {
 @media (min-width:768px) {
     body {
         padding-top: 0;
-        padding-left: 232px
     }
 
     .navbar-fixed-left {

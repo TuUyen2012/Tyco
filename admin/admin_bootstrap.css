@@ -8998,6 +8998,7 @@
     }
     .navbar {
       display: none;
+      margin-bottom: 0!important;
     }
     .badge {
       border: 1px solid #000;

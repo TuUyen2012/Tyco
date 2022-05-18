@@ -82,12 +82,10 @@
 
 body {
     padding-top: 70px;
-    min-height: 200vh
 }
 
 .navbar-fixed-left,
 .navbar-fixed-right {
-    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1030;
@@ -153,7 +151,6 @@ body {
 @media (min-width:768px) {
     body {
         padding-top: 0;
-        padding-left: 232px
     }
 
     .navbar-fixed-left {
