@@ -1,7 +1,8 @@
-.fa-solid{
-    
-}
 .navbar{
     background-color: #DE6262;
     border-color:#DE6262;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff !important;
 }

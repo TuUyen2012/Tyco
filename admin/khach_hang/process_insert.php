@@ -6,7 +6,8 @@
 
 		require '../../connect.php';
 		mysqli_set_charset($connect,'utf8');
-		$sql = "insert into khach_hang(ten_khach_hang,email,mat_khau) values ('$ten_khach_hang','$email','$mat_khau')";
+		$sql = "insert into khach_hang(ten_khach_hang,email, dia_chi, sdt, mat_khau, gioi_tinh)
+		values ('$ten_khach_hang','$email', '$dia_chi', '$sdt','$mat_khau', '$gioi_tinh)";
 		mysqli_query($connect,$sql);
 		mysqli_close($connect);
 		header('location:view.php');

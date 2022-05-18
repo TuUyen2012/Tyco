@@ -7,50 +7,70 @@ if(empty($_SESSION['ma_admin']))
  ?>
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title></title>
-
+	<style>
+		.header {
+			float: right;
+			margin: 1%;
+		}
+	</style>
 </head>
 
-<body >
-	<?php 
+<body>
+	<div style="display: flex;justify-content: space-between;">
+		<?php 
 		require '../../connect.php';
 		$sql = "select * from hang_san_xuat";
 		$result = mysqli_query($connect,$sql);
 	?>
-	<?php   require '../khu_vuc_admin/menu_admin.php'; ?>
+		<?php   require '../khu_vuc_admin/menu_admin.php'; ?>
 
-	
-	 <center><table border="1px"  width="80%" cellspacing="0px" >
-	 	<tr style="color: red; font-size: 32px" >	
-	 	
-	 		<th>Tên hãng sản xuất</th>
-	 		<th>Sửa</th>
-	 		<th>Xóa</th>
-	 	</tr>
-	 	
-	 		
-	 	<?php foreach ($result as $each): ?>
-	 		<tr style="font-size: 20px;">
-	 		<td>
-	 			<?php echo $each['ten_hang_san_xuat']; ?>
-	 		</td>
-	 		
-	
-	 		<td>
-	 			<a href="form_update.php?ma_hang_san_xuat=<?php echo $each['ma_hang_san_xuat'] ?>"><b style="color: green;"> Sửa</b></a>
-	 		</td>
-	 		<td>
-	 			<a onclick='return confirm("Bạn có chắc chắn muốn xóa?")' href="delete.php?ma_hang_san_xuat=<?php echo $each['ma_hang_san_xuat'] ?>"><u style="color: #ff8080;">Xóa</u></a>
-	 		</td>	
-	 	</tr>
-	 <?php endforeach ?>
-	 </table></center>
-	 <br>
-	 <hr>
-	  <a href="form_insert.php">Thêm hãng sản xuất</a>
-	  
-	<?php mysqli_close($connect); ?>
+		<div style="flex: 1;">
+			<div class="header container-fluid">
+				<a class="btn btn-primary" href="form_insert.php">
+					<i class="fa-solid fa-user-plus"></i>
+					Add manufacturer
+				</a>
+			</div>
+			</br>
 
+			<center style="margin: 5%">
+				<table class="table table-hover" border="1px" width="80%" cellspacing="0px">
+					<tr class="success">
+						<th>Producer</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+
+
+					<?php foreach ($result as $each): ?>
+					<tr>
+						<td>
+							<?php echo $each['ten_hang_san_xuat']; ?>
+						</td>
+
+
+						<td>
+							<a href="form_update.php?ma_hang_san_xuat=<?php echo $each['ma_hang_san_xuat'] ?>">
+								<i class="fa-solid fa-pen-to-square"></i>
+							</a>
+						</td>
+						<td>
+							<a onclick='return confirm("Bạn có chắc chắn muốn xóa?")'
+								href="delete.php?ma_hang_san_xuat=<?php echo $each['ma_hang_san_xuat'] ?>">
+								<i class="fa-solid fa-trash-can"></i>
+							</a>
+						</td>
+					</tr>
+					<?php endforeach ?>
+				</table>
+			</center>
+		</div>
+
+		<?php mysqli_close($connect); ?>
+	</div>
 </body>
+
 </html>
