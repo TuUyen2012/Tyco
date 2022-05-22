@@ -35,22 +35,24 @@
                 <ul class="nav navbar-nav">
                     <?php if ($_SESSION['cap_do']==0) {?>
                         <?php }else { ?>
-                    <li><a class="dropdown-item" href="/project1-master/admin/quan_ly_admin/index.php"><i class="fa-solid fa-circle-user"></i> Quản lý admin</a></li>
+                    <li><a class="dropdown-item" href="/project1-master/admin/quan_ly_admin/index.php"><i class="fa-solid fa-circle-user"></i> Admin Control</a></li>
                     <?php }?>
-                    <li><a class="dropdown-item" href="/project1-master/admin/khach_hang/view.php"><i class="fa-solid fa-screwdriver-wrench"></i> Quản lý khách hàng</a></li>
-                    <li><a class="dropdown-item" href="/project1-master/admin/quan_ly_hang_san_xuat/index.php"><i class="fa-solid fa-screwdriver-wrench"></i> Quản lý hãng sản xuất</a></li>
-                    <li><a class="dropdown-item" href="/project1-master/admin/quan_li_hoa_don/cac_tinh_trang.php"><i class="fa-solid fa-screwdriver-wrench"></i> Quản lý sản phẩm</a></li>
+                    <li><a class="dropdown-item" href="/project1-master/admin/khach_hang/view.php"><i class="fa-solid fa-screwdriver-wrench"></i>Customer Mangement</a></li>
+                    <li><a class="dropdown-item" href="/project1-master/admin/quan_ly_hang_san_xuat/index.php"><i class="fa-solid fa-screwdriver-wrench"></i>Manufacture Mangement</a></li>
+                    <li><a class="dropdown-item" href="/project1-master/admin/quan_ly_san_pham/view_sp.php"><i class="fa-solid fa-screwdriver-wrench"></i>Product Mangement</a></li>
+                    <li><a class="dropdown-item" href="/project1-master/admin/inventoryControl/index.php"><i class="fa-solid fa-screwdriver-wrench"></i>Inventory Mangement</a></li>
                     <li>
                         <a data-toggle="collapse" href="#answerOne" class="dropdown-item dropdown-toggle">
-                            <i class="fa-solid fa-bowl-rice"></i> Quản lý hóa đơn
+                            <i class="fa-solid fa-bowl-rice"></i>Bill Management
                         </a>
                         <ul class="panel-collapse collapse" id="answerOne">
-                            <li><a class="dropdown-item" href="#">Chưa duyệt</a></li>
-                            <li><a class="dropdown-item" href="#">Đang giao</a></li>
-                            <li><a class="dropdown-item" href="#">Đã giao</a></li>
-                            <li><a class="dropdown-item" href="#">Đã hủy</a></li>
+                            <li><a class="dropdown-item" href="/project1-master/admin/quan_li_hoa_don/chua_duyet.php">Chưa duyệt</a></li>
+                            <li><a class="dropdown-item" href="/project1-master/admin/quan_li_hoa_don/dang_giao.php">Đang giao</a></li>
+                            <li><a class="dropdown-item" href="/project1-master/admin/quan_li_hoa_don/da_giao.php">Đã giao</a></li>
+                            <li><a class="dropdown-item" href="/project1-master/admin/quan_li_hoa_don/da_huy.php">Đã hủy</a></li>
                         </ul>
                     </li>
+                    
                 </ul>
                 <button class="btn btn-outline-danger"><a href="../logout.php">Log out</a></button>
             </div>
