@@ -6,7 +6,7 @@ session_start();
 
 <head>
   <title></title>
-  <link rel="stylesheet" type="text/css" href="./assets/homes.css">
+  <link rel="stylesheet" type="text/css" href="./assets/home3.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -16,8 +16,39 @@ session_start();
   <?php   require './menu_home.php'; ?>
   <?php 
 		require 'connect.php';
-		$sql = "select * from san_pham";
+    
+		$sql = "select * from san_pham as sp ";
+    if (isset($_GET['product_company']) && !empty($_GET['product_company'])){
+      $product_company = $_GET['product_company'];
+      $sql .= 'inner join hang_san_xuat as hsx on sp.ma_hang_san_xuat = hsx.ma_hang_san_xuat ';
+    }
+    // $_GET['ten_san_pham'] = 'a';
+    if (isset($_GET['product'])){
+      $product = $_GET['product'];
+      $sql .= "where ten_san_pham like '%$product%' ";
+    }
+    if (isset($_GET['product_company']) && !empty($_GET['product_company'])){
+      $sql .= "and hsx.ten_hang_san_xuat like '%$product_company%'";
+    }
+    if (isset($_GET['listMoney'])){
+      $listMoney = '';
+      $option = $_GET['listMoney'];
+      if($option ==1){
+        $listMoney = "and gia between 0 and 1000000 ";
+      }
+      else if($option ==2){
+        $listMoney = "and gia between 1000000 and 3000000 ";
+      }
+      else if($option ==3){
+        $listMoney = "and gia > 3000000 ";
+      }
+      $sql.= $listMoney;
+    }
+    // echo $sql;
 		$result = mysqli_query($connect,$sql);
+    if($result == false){
+      $result=[];
+    }
 	?>
   <div class="wrapper">
     <div class="slider">
@@ -55,8 +86,9 @@ session_start();
         </div>
       </div>
 
-      <div class=" container row">
-        <div class="col-sm-3">
+      <div class="container row my-style" style="display: flex; width: 100%; justify-content: space-evenly; ">
+        <div class="col-sm-3" style="width: 100%;">
+          <form>
           <table class="table table-hover">
             <thead>
               <tr>
@@ -67,35 +99,44 @@ session_start();
               <tr>
                 <td>Money</td>
                 <td>
-                  <input list="listMoney" name="listMoney">
-                  <datalist id="listMoney">
-                    <option value="0 - 1.000.000">
-                    <option value="1.000.000 - 3.000.000">
-                    <option value="3.000.000 trở lên">
-                  </datalist>
+                  <select id="listMoney" name="listMoney">
+                    <option value="All">All</option>
+                    <option value="1">0 - 1.000.000</option>
+                    <option value="2">1.000.000 - 3.000.000</option>
+                    <option value="3">3.000.000 trở lên</option>
+                  </select>
                 </td>
               </tr>
               <tr>
                 <td>Product Company</td>
-                <td><input type="text"></td>
+                <td><input name ="product_company" type="text"></td>
               </tr>
               <tr>
                 <td>Product</td>
-                <td><input type="text"></td>
+                <td><input name ="product" type="text"></td>
               </tr>
             </tbody>
           </table>
+          <div class="form-check">
+              <input type="submit" class="btn btn-login float-right"
+                href="home.php">
+            </div>
+          </form>
         </div>
-        <div class="col-sm-9" style="background-color:pink;">
-          <p>Sed ut perspiciatis...</p>
+        <div class="col-sm-9" style="width: 100%;">
+          <!-- <p>Sed ut perspiciatis...</p> -->
           <?php foreach ($result as $each): ?>
-          <img src="anh_san_pham/<?php echo $each['anh']?>" style="height = 100px;">
+          <div class="img">
+            <a href="xem_chi_tiet.php?ma_san_pham=<?php echo $each['ma_san_pham'] ?>"><img src="anh_san_pham/<?php echo $each['anh']?>" style="height:250px; width: 250px;"></a>
+            <p class="uyn"><?php echo $each['ten_san_pham'] ?></p>
+            <p class="uyn"><?php echo $each['gia'] ?></p>
+          </div>
           <?php if(isset($_SESSION['ma_khach_hang'])){?>
-          <a onclick="return alert('Bạn đã thêm sản phẩm thành công vào giỏ hàng')" class="preview"
-            href="process_them_san_pham_vao_gio_hang.php?ma_san_pham=<?php echo $each['ma_san_pham'] ?>">Mua</a>
+          <!-- <a onclick="return alert('Bạn đã thêm sản phẩm thành công vào giỏ hàng')" class="preview"
+            href="process_them_san_pham_vao_gio_hang.php?ma_san_pham=<?php echo $each['ma_san_pham'] ?>">Mua</a> -->
           <?php }?>
           <?php if(!isset($_SESSION['ma_khach_hang'])){?>
-          <a class="preview">Mua</a>
+          <!-- <a class="preview">Mua</a> -->
           <?php }?>
           <?php endforeach ?>
         </div>

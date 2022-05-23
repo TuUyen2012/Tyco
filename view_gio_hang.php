@@ -1,10 +1,6 @@
 
 <?php 
 session_start();
-// if(empty($_SESSION['ma_khach_hang']))
-// {
-// 	header("location:form_login.php?error=Đăng nhập đi");
-// }
  ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +27,7 @@ else{
 	$gio_hang = $_SESSION['gio_hang'];
 	?>
 	
-	<table border="1" width="100%" style="background:white;margin-top:30px;font-size: 30px "> 
+	<table border = "1" width="100%" style="background:white;margin-top:30px;font-size: 30px "> 
 		<tr>
 			<th>Tên</th>
 			<th>Ảnh</th>
@@ -59,7 +55,7 @@ else{
 				<td>
 					<?php echo $san_pham['gia']*$san_pham['so_luong'] ?>
 				</td>
-				<td><a onclick='return confirm("Bạn có chắc chắn muốn xóa?")' href="xoa_san_pham_trong_gio_hang.php?ma_san_pham=<?php echo $ma_san_pham ?>"><i style="color: red;" class="fa fa-trash"></i><b style="color: red;">Bỏ sản phẩm</b></a></td>
+				<td><a onclick='return confirm("Bạn có chắc chắn muốn xóa?")' href="xoa_san_pham_trong_gio_hang.php?ma_san_pham=<?php echo $ma_san_pham ?>"><i style="color: red;" class="fa fa-trash"></i><b style="color: red;"></b></a></td>
 			</tr>
 		<?php endforeach ?>
 	</table>

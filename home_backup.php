@@ -96,7 +96,7 @@ require 'menu.php';
             <?php }?>
             <?php if(!isset($_SESSION['ma_khach_hang'])){?>
 
-            <a class="preview">Mua</a>
+            <!-- <a class="preview">Mua</a> -->
 
             <?php }?>
 
