@@ -21,7 +21,7 @@
             <li><a href="home.php">About us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="process_them_san_pham_vao_gio_hang.php?ma_san_pham=<?php echo $each['ma_san_pham'] ?>"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li><a href="view_gio_hang.php?>"><i class="fa-solid fa-cart-shopping"></i></a></li>
             <li><a href="form_dang_ky.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="form_login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>

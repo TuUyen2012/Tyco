@@ -10,6 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<? session_start();?>
 <?php require'menu_home.php' ?>
     <!-- <?php
         $ma_san_pham = $_GET['ma_san_pham'];
@@ -52,13 +53,9 @@
                     <a href=""><?php echo nl2br($key['gia'])?>VND</a>
                 </p> 
                 <a href="home.php"><button>Go Back</button></a>
-
-                <?php if(isset($_SESSION['ma_khach_hang'])){?>
-                    <a onclick="return alert('Bạn đã thêm sản phẩm thành công vào giỏ hàng')" class="preview"
-                href="process_them_san_pham_vao_gio_hang.php?ma_san_pham=<?php echo $each['ma_san_pham'] ?>"></a>
-                <?php }?>
                 <?php if(!isset($_SESSION['ma_khach_hang'])){?>
-                    <button>Add to cart</button>
+                    <button onclick="return alert('Bạn đã thêm sản phẩm thành công vào giỏ hàng')" class="preview"
+                href="process_them_san_pham_vao_gio_hang.php?ma_san_pham=<?php echo $key['ma_san_pham'] ?>">Add to cart</button>
                 <?php }?>
             </div>
         <?php endforeach?>

@@ -16,7 +16,7 @@ session_start();
   <?php   require './menu_home.php'; ?>
   <?php 
 		require 'connect.php';
-    
+    session_start();
 		$sql = "select * from san_pham as sp ";
     if (isset($_GET['product_company']) && !empty($_GET['product_company'])){
       $product_company = $_GET['product_company'];
