@@ -23,7 +23,7 @@ html{
     margin-top: 30px;
 }
 .footer{
-    background-color: black;
+    background-color: #edb4c2;
     height: 200px;
     text-align: center;
 }
@@ -43,3 +43,21 @@ html{
     height: 300px;
     margin-top: -20px;
 }
+.col-sm-3{
+    margin-left: -30px;
+    margin-left: 3%;
+    border-left: 1px solid black;
+}
+.col-sm-9{
+    box-shadow: 2px 2px 2px 2px #3f6969;
+    margin-left: 30px;
+    margin-bottom: 50px;
+    display: flex;
+}
+
+.my-style {
+    
+    
+    
+}
+

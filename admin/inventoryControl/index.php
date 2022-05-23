@@ -1,28 +1,23 @@
-<?php 
-session_start();
-if(empty($_SESSION['ma_admin']))
-{
-	header("location:../form_login.php?error=Đăng nhập đi");
-}
- ?>
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<title></title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inven.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<style>
+    <title>Inventory</title>
+    <style>
 		.header {
 			float: right;
 			margin: 1%;
 		}
 	</style>
 </head>
-
 <body>
-	<div style="display: flex;justify-content: space-between;">
+<div style="display: flex;justify-content: space-between;">
 		<?php 
 		require '../../connect.php';
 		$sql = "select * from hang_san_xuat";
@@ -38,7 +33,6 @@ if(empty($_SESSION['ma_admin']))
 				</a>
 			</div>
 			</br>
-
 			<center style="margin: 5%">
 				<table class="table table-hover" border="1px" width="80%" cellspacing="0px">
 					<tr class="success">
@@ -75,5 +69,4 @@ if(empty($_SESSION['ma_admin']))
 		<?php mysqli_close($connect); ?>
 	</div>
 </body>
-
 </html>
