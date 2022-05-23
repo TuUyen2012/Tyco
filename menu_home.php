@@ -22,8 +22,12 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="view_gio_hang.php?>"><i class="fa-solid fa-cart-shopping"></i></a></li>
-            <li><a href="form_dang_ky.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="form_login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <?php if(isset($_SESSION['ma_khach_hang'])){ ?>
+                <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            <?php }else{ ?>
+                <li><a href="form_dang_ky.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="form_login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <?php }?>
         </ul>
     </div>
     </nav>
