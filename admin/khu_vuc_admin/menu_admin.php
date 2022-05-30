@@ -46,10 +46,10 @@
                             <i class="fa-solid fa-bowl-rice"></i>Bill Management
                         </a>
                         <ul class="panel-collapse collapse" id="answerOne">
-                            <li><a class="dropdown-item" href="/project1-master/admin/quan_li_hoa_don/chua_duyet.php">Chưa duyệt</a></li>
-                            <li><a class="dropdown-item" href="/project1-master/admin/quan_li_hoa_don/dang_giao.php">Đang giao</a></li>
-                            <li><a class="dropdown-item" href="/project1-master/admin/quan_li_hoa_don/da_giao.php">Đã giao</a></li>
-                            <li><a class="dropdown-item" href="/project1-master/admin/quan_li_hoa_don/da_huy.php">Đã hủy</a></li>
+                            <li><a class="dropdown-item" href="/project1-master/admin/quan_li_hoa_don/chua_duyet.php">Not Approved</a></li>
+                            <li><a class="dropdown-item" href="/project1-master/admin/quan_li_hoa_don/dang_giao.php">Delivering</a></li>
+                            <li><a class="dropdown-item" href="/project1-master/admin/quan_li_hoa_don/da_giao.php">Delivered</a></li>
+                            <li><a class="dropdown-item" href="/project1-master/admin/quan_li_hoa_don/da_huy.php">Canceled</a></li>
                         </ul>
                     </li>
                     

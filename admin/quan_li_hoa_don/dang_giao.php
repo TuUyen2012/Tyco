@@ -6,16 +6,27 @@ if(empty($_SESSION['ma_admin']))
 }
  ?>
 
-
 <style>
     .item {
-        margin: 3rem 1rem;
-        padding: 2rem;
-        background-color: #ffff4d;
+        margin-left: 500px;
+        margin-top: -650px;
+        width: 100%;
+    }
+    table{
+        border: 1px solid #ccc;
+    }
+    table th {
+    background-color: #cad8fa;
+    padding: 5px;
+    }
+    table td {
+    background-color: #f0e7da;
+    padding: 5px;
     }
 </style>
+
 <?php   require '../khu_vuc_admin/menu_admin.php'; ?>
-<a href="cac_tinh_trang.php">Các tình trạng đơn hàng</a>
+<a href="cac_tinh_trang.php"></a>
 
 <?php
 require '../../connect.php';
@@ -50,12 +61,12 @@ require '../../connect.php';
         $tong_tien = 0;
 ?>
 <div class="item">
-    <p>Mã hóa đơn: <?php echo $row1["ma_hoa_don"] ?></p>
-    <p>Mã khách hàng: <?php echo $row1["ma_khach_hang"] ?></p>
-    <p>Tên khách hàng: <?php echo $row1["ten_nguoi_nhan"] ?></p>
-    <p>Địa chỉ: <?php echo $row1["dia_chi_nguoi_nhan"] ?></p>
-
-
+    <table>
+        <tr>
+            <th>Mã hóa đơn</th>
+            <th>Mã khách hàng</th>
+            <th>Tên khách hàng</th>
+            <th>Địa chỉ</th>    
 
 <?php
     $maa = $row1["ma_hoa_don"];
@@ -64,23 +75,38 @@ require '../../connect.php';
     while($row2 = mysqli_fetch_array($res2)) {
         $tong_tien += (intval($row2["gia"])*intval($row2["so_luong"]));
 ?>
+    <!-- không hiện -->
     <p>Mã sản phẩm: <?php echo $row2["ma_san_pham"] ?></p>
     <p>Số lượng: <?php echo $row2["so_luong"] ?></p>
     <p>Tên sản phẩm: <?php echo $row2["ten_san_pham"] ?></p>
+    <!-- không hiện -->
     
 <?php
     }
 ?>
-    <p>Tổng tiền: <?php echo number_format($tong_tien) ?>
-VND</p>
-    <form action="dang_giao.php" method="POST">
-        <input type="hidden" value="<?php echo $row1["ma_hoa_don"] ?>" name="da_giao_hang_xong">
-        <input type="submit" value="Đã giao hàng xong">
-    </form>
-    <form action="dang_giao.php" method="POST">
-        <input type="hidden" value="<?php echo $row1["ma_hoa_don"] ?>" name="khong_giao_duoc_hang">
-        <input type="submit" value="Không giao được hàng">
-    </form>
+            <th>Tổng tiền</th>
+        </tr>
+        <tr>
+            <td><?php echo $row1["ma_hoa_don"] ?></td>
+            <td><?php echo $row1["ma_khach_hang"] ?></td>
+            <td><?php echo $row1["ten_nguoi_nhan"] ?></td>
+            <td><?php echo $row1["dia_chi_nguoi_nhan"] ?></td>
+            <td><?php echo number_format($tong_tien) ?> VND</td>
+        
+            <td>
+                <form action="dang_giao.php" method="POST">
+                    <input type="hidden" value="<?php echo $row1["ma_hoa_don"] ?>" name="da_giao_hang_xong">
+                    <input type="submit" value="Đã giao hàng xong">
+                </form>
+            </td>
+            <td>
+                <form action="dang_giao.php" method="POST">
+                    <input type="hidden" value="<?php echo $row1["ma_hoa_don"] ?>" name="khong_giao_duoc_hang">
+                    <input type="submit" value="Không giao được hàng">
+                </form>
+            </td>
+        </tr>
+    </table>
 </div>
 
 <?php
