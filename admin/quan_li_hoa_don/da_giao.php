@@ -6,14 +6,25 @@ if(empty($_SESSION['ma_admin']))
 }
  ?>
 
-
 <style>
     .item {
-        margin: 3rem 1rem;
-        padding: 2rem;
-        background-color: #3399ff;
+        margin-left: 500px;
+        margin-top: -650px;
+        width: 100%;
+    }
+    table{
+        border: 1px solid #ccc;
+    }
+    table th {
+    background-color: #cad8fa;
+    padding: 5px;
+    }
+    table td {
+    background-color: #f0e7da;
+    padding: 5px;
     }
 </style>
+
 <?php   require '../khu_vuc_admin/menu_admin.php'; ?>
 <a href="cac_tinh_trang.php">Các tình trạng đơn hàng</a>
 

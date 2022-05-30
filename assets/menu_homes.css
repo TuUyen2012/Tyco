@@ -1,0 +1,20 @@
+.navbar{
+    background-color: #333;
+    border-color:#333;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff !important;
+    font-size: 35px;
+    line-height: 35px;
+}
+.text{
+    margin-top:10px;
+    color: #fff !important;
+}
+.fa-solid{
+    margin-right:5px;
+}
+.glyphicon{
+    margin-right:5px;
+}

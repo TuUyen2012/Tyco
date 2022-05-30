@@ -60,7 +60,7 @@ session_start();
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner">
+        <div class="carousel-inner" style="margin-top: -20px;">
           <div class="item active">
             <img src="./admin/people-coffee-tea-meeting.jpg" alt="Los Angeles">
           </div>
