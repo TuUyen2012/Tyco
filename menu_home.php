@@ -1,4 +1,3 @@
-
  <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -22,6 +21,7 @@
             <li><a href="home.php" class="text">About us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
             <li><a href="view_gio_hang.php?>"><i class="fa-solid fa-cart-shopping text"></i></a></li>
             <?php if(isset($_SESSION['ma_khach_hang'])){ ?>
                 <li><a href="#" class="text"><i class="fa-solid fa-user"></i>Welcome</a></li>
@@ -29,6 +29,14 @@
             <?php }else{ ?>
                 <li><a href="form_dang_ky.php" class="text"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li><a href="form_login.php" class="text"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+=======
+            <li><a href="view_gio_hang.php?>"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <?php if(isset($_SESSION['ma_khach_hang'])){ ?>
+                <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            <?php }else{ ?>
+                <li><a href="form_dang_ky.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="form_login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+>>>>>>> 0dd108db0a49d1f6df9b085090b19ffd757a5da4
             <?php }?>
         </ul>
     </div>

@@ -13,10 +13,13 @@ session_start();
 </head>
 
 <body>
-  <?php   require './menu_home.php'; ?>
+  <?php require './menu_home.php'; ?>
   <?php 
 		require 'connect.php';
+<<<<<<< HEAD
     session_start();
+=======
+>>>>>>> 0dd108db0a49d1f6df9b085090b19ffd757a5da4
 		$sql = "select * from san_pham as sp ";
     if (isset($_GET['product_company']) && !empty($_GET['product_company'])){
       $product_company = $_GET['product_company'];
