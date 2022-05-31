@@ -304,7 +304,7 @@ session_start();
 									<div class="product-body">
 										<p class="product-category">Category</p>
 										<h3 class="product-name"><a href="xem_chi_tiet.php?ma_san_pham=<?php echo $each['ma_san_pham'] ?>"><?php echo $each['ten_san_pham'] ?></a></h3>
-										<h4 class="product-price"><?php echo $each['gia'] ?><del class="product-old-price">$990.00</del></h4>
+										<h4 class="product-price"><?php echo number_format($each['gia']) ?><del class="product-old-price">$990.00</del></h4>
 										<div class="product-rating">
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>

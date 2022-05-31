@@ -23,7 +23,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li><a href="view_gio_hang.php?>"><i class="fa-solid fa-cart-shopping text"></i></a></li>
             <?php if(isset($_SESSION['ma_khach_hang'])){ ?>
-                <li><a href="#" class="text"><i class="fa-solid fa-user"></i>Welcome</a></li>
+                <li><a href="#" class="text"><i class="fa-solid fa-user"></i><?php $_SESSION['ten_khach_hang'] ?></a></li>
                 <li><a href="logout.php" class="text"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>    
             <?php }else{ ?>
                 <li><a href="form_dang_ky.php" class="text"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
