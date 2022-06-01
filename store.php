@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -37,6 +40,42 @@
     </head>
 	<body>
 		<?php   require './menu_home.php'; ?>
+		<?php 
+		require 'connect.php';
+		$sql = "select * from san_pham as sp ";
+    if (isset($_GET['product_company']) && !empty($_GET['product_company'])){
+      $product_company = $_GET['product_company'];
+      $sql .= 'inner join hang_san_xuat as hsx on sp.ma_hang_san_xuat = hsx.ma_hang_san_xuat ';
+    }
+    // $_GET['ten_san_pham'] = 'a';
+    if (isset($_GET['product'])){
+      $product = $_GET['product'];
+      $sql .= "where ten_san_pham like '%$product%' ";
+    }
+    if (isset($_GET['product_company']) && !empty($_GET['product_company'])){
+      $sql .= "and hsx.ten_hang_san_xuat like '%$product_company%'";
+    }
+    if (isset($_GET['listMoney'])){
+      $listMoney = '';
+      $option = $_GET['listMoney'];
+      if($option ==1){
+        $listMoney = "and gia between 0 and 1000000 ";
+      }
+      else if($option ==2){
+        $listMoney = "and gia between 1000000 and 3000000 ";
+      }
+      else if($option ==3){
+        $listMoney = "and gia > 3000000 ";
+      }
+      $sql.= $listMoney;
+    }
+    // echo $sql;
+		$result = mysqli_query($connect,$sql);
+    if($result == false){
+      $result=[];
+    }
+	?>
+
 
 		<!-- SECTION -->
 		<div class="section">
@@ -248,9 +287,10 @@
 							</div>
 						</div>
 						<!-- /store top filter -->
-
+						
 						<!-- store products -->
 						<div class="row">
+						<?php foreach ($result as $each): ?>
 							<!-- product -->
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
@@ -279,8 +319,10 @@
 								</div>
 							</div>
 							<!-- /product -->
+							<?php endforeach ?>
 
 							<div class="clearfix visible-sm visible-xs"></div>
+							
 
 						<!-- /store products -->
 

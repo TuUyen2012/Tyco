@@ -54,15 +54,9 @@
                     <a href=""><?php echo nl2br($key['gia'])?>VND</a>
                 </p> 
                 <a href="home.php"><button>Go Back</button></a>
-<<<<<<< HEAD
                 <?php if(!isset($_SESSION['ma_khach_hang'])){?>
                     <button onclick="return alert('Bạn đã thêm sản phẩm thành công vào giỏ hàng')" class="preview"
                 href="process_them_san_pham_vao_gio_hang.php?ma_san_pham=<?php echo $key['ma_san_pham'] ?>">Add to cart</button>
-=======
-                <?php if(isset($_SESSION['ma_khach_hang'])){?>
-                    <a onclick="return alert('Bạn đã thêm sản phẩm thành công vào giỏ hàng')" class="preview"
-                href="process_them_san_pham_vao_gio_hang.php?ma_san_pham=<?php echo $key['ma_san_pham'] ?>">Add to cart</a>
->>>>>>> 0dd108db0a49d1f6df9b085090b19ffd757a5da4
                 <?php }?>
             </div>
         <?php endforeach?>

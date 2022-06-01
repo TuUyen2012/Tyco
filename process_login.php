@@ -19,7 +19,7 @@ if($dem==1){
 	$_SESSION['ma_khach_hang'] = $each['ma_khach_hang'];
 	$_SESSION['ten_khach_hang'] = $each['ten_khach_hang'];
 
-	header("location:home.php");
+	header("location:store.php");
 	echo "Xin chao $ten_khach_hang";
 }
 else{
