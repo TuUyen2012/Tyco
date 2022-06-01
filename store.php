@@ -42,7 +42,7 @@ session_start();
 		<?php   require './menu_home.php'; ?>
 		<?php 
 		require 'connect.php';
-		$sql = "select * from san_pham as sp ";
+		$sql = "select * from san_pham as sp where 1=1 ";
     if (isset($_GET['product_company']) && !empty($_GET['product_company'])){
       $product_company = $_GET['product_company'];
       $sql .= 'inner join hang_san_xuat as hsx on sp.ma_hang_san_xuat = hsx.ma_hang_san_xuat ';
@@ -50,7 +50,7 @@ session_start();
     // $_GET['ten_san_pham'] = 'a';
     if (isset($_GET['product'])){
       $product = $_GET['product'];
-      $sql .= "where ten_san_pham like '%$product%' ";
+      $sql .= "and ten_san_pham like '%$product%' ";
     }
     if (isset($_GET['product_company']) && !empty($_GET['product_company'])){
       $sql .= "and hsx.ten_hang_san_xuat like '%$product_company%'";
@@ -69,11 +69,15 @@ session_start();
       }
       $sql.= $listMoney;
     }
-    // echo $sql;
-		$result = mysqli_query($connect,$sql);
+    echo $sql;
+	$result = mysqli_query($connect,$sql);
     if($result == false){
       $result=[];
     }
+	$categories = mysqli_query($connect,"select * from hang_san_xuat");
+	foreach ($categories as $category){
+		print_r($category['ten_hang_san_xuat']);
+	}
 	?>
 
 
@@ -143,7 +147,7 @@ session_start();
 						<div class="aside">
 							<h3 class="aside-title">PRODUCT</h3>
 							<div class="checkbox-filter">
-
+							
 								<div class="input-checkbox">
 									<input type="checkbox" id="category-1">
 									<label for="category-1">
@@ -202,73 +206,69 @@ session_start();
 						<!-- /aside Widget -->
 
 						<!-- aside Widget -->
-						<div class="aside">
-							<h3 class="aside-title">Price</h3>
-							<select id="listMoney" name="listMoney">
-								<option value="All">All</option>
-								<option value="1">0 - 1.000.000</option>
-								<option value="2">1.000.000 - 3.000.000</option>
-								<option value="3">3.000.000 trở lên</option>
-                  			</select>
-						</div>
+						<div class="col-sm-3" style="width: 100%;">
+          <form>
+          <table class="table table-hover">
+            <tbody>
+              <tr>
+                <td>Money</td>
+                <td>
+                  <select id="listMoney" name="listMoney">
+                    <option value="All">All</option>
+                    <option value="1">0 - 1.000.000</option>
+                    <option value="2">1.000.000 - 3.000.000</option>
+                    <option value="3">3.000.000 trở lên</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 						<!-- /aside Widget -->
 
 						<!-- aside Widget -->
 						<div class="aside">
 							<h3 class="aside-title">BRAND</h3>
 							<div class="checkbox-filter">
+							<div class="input-checkbox">
+									<input type="checkbox" id="brand-1">
+									<label for="brand-1">
+										<span></span>
+										All
+										<small>
+											<?php 
+											$count =mysqli_fetch_assoc(mysqli_query($connect,"select count(*) as total from san_pham"));
+											echo "(".$count['total'].")";
+											?>
+										</small>
+									</label>
+								</div>
+								<?php foreach ($categories as $category){ ?>
 								<div class="input-checkbox">
 									<input type="checkbox" id="brand-1">
 									<label for="brand-1">
 										<span></span>
-										SAMSUNG
-										<small>(578)</small>
+										<?php
+										 echo $category['ten_hang_san_xuat'];
+										 $ma_hang_san_xuat = $category['ma_hang_san_xuat'];
+										?>
+										<small>
+											<?php 
+											$count =mysqli_fetch_assoc(mysqli_query($connect,"select count(*) as total from san_pham where ma_hang_san_xuat = $ma_hang_san_xuat"));
+											echo "(".$count['total'].")";
+											?>
+										</small>
 									</label>
 								</div>
-								<div class="input-checkbox">
-									<input type="checkbox" id="brand-2">
-									<label for="brand-2">
-										<span></span>
-										LG
-										<small>(125)</small>
-									</label>
-								</div>
-								<div class="input-checkbox">
-									<input type="checkbox" id="brand-3">
-									<label for="brand-3">
-										<span></span>
-										SONY
-										<small>(755)</small>
-									</label>
-								</div>
-								<div class="input-checkbox">
-									<input type="checkbox" id="brand-4">
-									<label for="brand-4">
-										<span></span>
-										SAMSUNG
-										<small>(578)</small>
-									</label>
-								</div>
-								<div class="input-checkbox">
-									<input type="checkbox" id="brand-5">
-									<label for="brand-5">
-										<span></span>
-										LG
-										<small>(125)</small>
-									</label>
-								</div>
-								<div class="input-checkbox">
-									<input type="checkbox" id="brand-6">
-									<label for="brand-6">
-										<span></span>
-										SONY
-										<small>(755)</small>
-									</label>
-								</div>
+								<?php } ?>
 							</div>
 						</div>
 						<!-- /aside Widget -->
-
+						<div class="form-check">
+              <input type="submit" class="btn btn-login float-right"
+                href="home.php">
+            </div>
+          </form>
 					</div>
 					<!-- /ASIDE -->
 
