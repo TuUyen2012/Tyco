@@ -42,11 +42,8 @@ session_start();
 		<?php   require './menu_home.php'; ?>
 		<?php 
 		require 'connect.php';
-<<<<<<< HEAD
 		$sql = "select * from san_pham as sp where 1=1 ";
-=======
-		$sql = "select * from san_pham as sp ";
->>>>>>> 0ac864f896cf0b322d816c808d00583ddc8f4225
+
     if (isset($_GET['product_company']) && !empty($_GET['product_company'])){
       $product_company = $_GET['product_company'];
       $sql .= 'inner join hang_san_xuat as hsx on sp.ma_hang_san_xuat = hsx.ma_hang_san_xuat ';
@@ -54,11 +51,7 @@ session_start();
     // $_GET['ten_san_pham'] = 'a';
     if (isset($_GET['product'])){
       $product = $_GET['product'];
-<<<<<<< HEAD
       $sql .= "and ten_san_pham like '%$product%' ";
-=======
-      $sql .= "where ten_san_pham like '%$product%' ";
->>>>>>> 0ac864f896cf0b322d816c808d00583ddc8f4225
     }
     if (isset($_GET['product_company']) && !empty($_GET['product_company'])){
       $sql .= "and hsx.ten_hang_san_xuat like '%$product_company%'";
@@ -77,7 +70,6 @@ session_start();
       }
       $sql.= $listMoney;
     }
-<<<<<<< HEAD
     echo $sql;
 	$result = mysqli_query($connect,$sql);
     if($result == false){
@@ -87,13 +79,6 @@ session_start();
 	foreach ($categories as $category){
 		print_r($category['ten_hang_san_xuat']);
 	}
-=======
-    // echo $sql;
-		$result = mysqli_query($connect,$sql);
-    if($result == false){
-      $result=[];
-    }
->>>>>>> 0ac864f896cf0b322d816c808d00583ddc8f4225
 	?>
 
 
